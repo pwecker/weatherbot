@@ -1,0 +1,4 @@
+node_modules/
+back/.tmp/
+back/.cache/
+back/.env
