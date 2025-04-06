@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "forecasts",
+  "info": {
+    "singularName": "forecast",
+    "pluralName": "forecasts",
+    "displayName": "Forecast",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "data": {
+      "type": "json"
+    },
+    "date": {
+      "type": "string"
+    },
+    "score": {
+      "type": "float"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::location.location",
+      "inversedBy": "forecasts"
+    }
+  }
+}
