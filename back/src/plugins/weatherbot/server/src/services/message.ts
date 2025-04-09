@@ -98,7 +98,7 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
 	async generate_message(forecastDoc: ForecastDoc, locationDoc: LocationDoc): Promise<any> {
     const { data, location } = forecastDoc;
     const { name, state } = locationDoc;
-    let prompt = `Today's weather forecast for ${name}, ${state} is: `;
+    let prompt = `People in ${name}, ${state} simply aren't taking today's weather forecast: `;
 
     for (const key in data) {
       if (key !== 'weather' && typeof lookup[key] !== 'undefined') {
@@ -107,7 +107,7 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
     }
 
     prompt += ` Description: ${data.weather.description}.`;
-    prompt += ` Please write a brief note warning people to stay away from ${name}, ${state} due to today's weather. Use descriptive language instead of citing numbers and limit the note to 144 characters.`;
+    prompt += ` seriously. Please urge them to stay away from ${name}, ${state} specifically today due to the weather; refer to it as "today's weather", use descriptive language instead of citing numbers, limit the response to 144 characters.`;
     const response = await xApi(prompt);
     const {
       choices: [
