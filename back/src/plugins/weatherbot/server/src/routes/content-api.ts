@@ -1,42 +1,24 @@
 export default [
   {
-    method: 'GET',
-    path: '/auth',
-    handler: 'auth.auth',
-    config: {
-      policies: [],
-    },
-  },
-  {
-    method: 'GET',
-    path: '/callback',
-    handler: 'auth.callback',
-    config: {
-      policies: [],
-    },
-  },
-  {
-    method: 'GET',
-    path: '/status',
-    handler: 'auth.status',
-    config: {
-      policies: [],
-    },
-  },
-  {
     method: 'POST',
     path: '/create',
     handler: 'create.create',
     config: {
-      policies: [],
+      auth: false,
+      policies: [
+        'plugin::weatherbot.token'
+      ]
     },
   },
   {
     method: 'GET',
     path: '/refresh',
     handler: 'forecast.refresh',
-    config: {
-      policies: [],
+    config:{
+      auth: false,
+      policies: [
+        'plugin::weatherbot.token'
+      ]
     },
   },
   {
@@ -44,15 +26,21 @@ export default [
     path: '/message',
     handler: 'message.message',
     config: {
-      policies: [],
+      auth: false,
+      policies: [
+        'plugin::weatherbot.token'
+      ]
     },
   },
   {
-    method: 'POST',
+    method: 'GET',
     path: '/upload',
     handler: 'upload.upload',
     config: {
-      policies: [],
+      auth: false,
+      policies: [
+        'plugin::weatherbot.token'
+      ]
     },
   },
   {
@@ -60,7 +48,21 @@ export default [
     path: '/track',
     handler: 'upload.track',
     config: {
-      policies: [],
+      auth: false,
+      policies: [
+        'plugin::weatherbot.token'
+      ]
+    },
+  },
+  {
+    method: 'GET',
+    path: '/:cmds',
+    handler: 'cmds.run',
+    config: {
+      auth: false,
+      policies: [
+        'plugin::weatherbot.token'
+      ]
     },
   }
 ];

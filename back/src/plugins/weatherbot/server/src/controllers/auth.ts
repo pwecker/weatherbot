@@ -26,7 +26,7 @@ const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
 
     }
     
-    ctx.body = connected;
+    ctx.body = { connected };
   },
 
   async auth(ctx) {
@@ -43,7 +43,7 @@ const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
       code_challenge,
       code_challenge_method: 'S256'
     });
-    ctx.redirect(`https://twitter.com/i/oauth2/authorize?${params.toString()}`);
+    ctx.body = { redirect: `https://twitter.com/i/oauth2/authorize?${params.toString()}` };
   },
 
   async callback(ctx) {

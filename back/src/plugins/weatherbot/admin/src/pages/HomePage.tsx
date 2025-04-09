@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Main, Button } from '@strapi/design-system';
-import axios from 'axios';
+import { getFetchClient } from '@strapi/strapi/admin';
+const { get } = getFetchClient();
 
 const HomePage = () => {
   const [connected, setConnected] = useState<boolean | null>(null);
   useEffect(() => {
     const checkConnection = async () => {
       try {
-        const res = await axios.get('/api/weatherbot/status');
-        setConnected(res.data);
+        const res = await get('/weatherbot/status');
+        const { connected } = res.data;
+        setConnected(connected);
       } catch(e) {
         setConnected(false);
       }
@@ -16,8 +18,10 @@ const HomePage = () => {
     checkConnection();
   }, [])
 
-  const handleConnect = () => {
-    window.location.href = '/api/weatherbot/auth';
+  const handleConnect = async() => {
+    const response = await get('/weatherbot/auth');
+    const { redirect } = response.data;
+    window.location.href = redirect;
   };
 
   return (
