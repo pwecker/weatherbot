@@ -54,5 +54,13 @@ export default [
     config: {
       policies: [],
     },
+  },
+  {
+    method: 'GET',
+    path: '/track',
+    handler: 'upload.track',
+    config: {
+      policies: [],
+    },
   }
 ];
