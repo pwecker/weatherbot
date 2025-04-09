@@ -28,6 +28,18 @@
       "relation": "manyToOne",
       "target": "api::location.location",
       "inversedBy": "messages"
+    },
+    "xid": {
+      "type": "string"
+    },
+    "public_metrics": {
+      "type": "json"
+    },
+    "x_created_at": {
+      "type": "string"
+    },
+    "user": {
+      "type": "json"
     }
   }
 }

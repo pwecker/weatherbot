@@ -38,6 +38,15 @@ export interface LocationDoc {
   id: number;
 }
 
+export interface MessageQuery {
+  filters?: {
+    date: string;
+    uploaded: boolean;
+  },
+  sort: string;
+  limit: number;
+}
+
 export interface MessageDoc {
   date: string;
   content: string;

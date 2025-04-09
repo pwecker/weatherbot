@@ -467,12 +467,16 @@ export interface ApiMessageMessage extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.Relation<'manyToOne', 'api::location.location'>;
+    public_metrics: Schema.Attribute.JSON;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     uploaded: Schema.Attribute.Boolean;
     usage: Schema.Attribute.Integer;
+    user: Schema.Attribute.JSON;
+    x_created_at: Schema.Attribute.String;
+    xid: Schema.Attribute.String;
   };
 }
 
