@@ -43,6 +43,8 @@ const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
         .service('message')
         .generate_message(forecast[0], forecast[0].location);
       ctx.body = response;
+
+      return;
     }
 
     const locationIds = recent
@@ -89,6 +91,8 @@ const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
 
       return;
     }
+
+
 
     const forecast = await strapi
       .documents('api::forecast.forecast')
