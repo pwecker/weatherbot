@@ -137,7 +137,7 @@
             return `${diffMin}m`;
           }
         } else {
-          const options = { month: 'short', day: 'numeric', timeZone: 'UTC' };
+          const options: Intl.DateTimeFormatOptions = { month: 'short', day: 'numeric', timeZone: 'UTC' };
           return input.toLocaleDateString('en-US', options);
         }
       }

@@ -44,9 +44,17 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
+interface Raindrop {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  delay: string;
+}
+
 const image = '/bg.png'
 const totalDrops = 33;
-const raindrops = ref([])
+const raindrops = ref<Raindrop[]>([])
 
 for (let i = 0; i < totalDrops; i++) {
   const x = Math.random()

@@ -55,7 +55,7 @@
 					home: {
 						table: false,
 						font: false,
-						images: null,
+						images: [] as any,
 						preload: [
 							{ media: 'x.svg' },
 							{ media: 'github-mark.svg' },
@@ -122,6 +122,8 @@
 						img.onerror = () => resolve(null);
 					});
 				});
+
+				console.log((await Promise.all(images)).filter(Boolean))
 
 				this.ux.home.images = (await Promise.all(images)).filter(Boolean);
 			}
