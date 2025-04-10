@@ -14,20 +14,13 @@ export default ({ env }) => ({
 				}
 			},
 			connections: {
-				default: {
-					connection: {
-						host: env('REDIS_HOST'),
-						port: env('REDIS_PORT', 6379),
-						username: env('REDIS_USER', ''),
-						password: env('REDIS_PASS', ''),
-						db: 0,
-						family: 0
-					},
-					settings: {
-						debug: false
-					}
-				}
-			}
+        default: {
+          connection: env('REDIS_URL', `redis://${env('REDIS_USER', 'default')}:${env('REDIS_PASS', '')}@${env('REDIS_HOST', 'redis.railway.internal')}:${env.int('REDIS_PORT', 6379)}/0?family=0`),
+          settings: {
+            debug: true
+          }
+        }
+      }
 		}
 
 	},
