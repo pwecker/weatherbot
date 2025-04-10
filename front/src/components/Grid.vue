@@ -1,6 +1,6 @@
 <template>
-	<div class="flex flex-col w-full h-full">
-		<div class="font-[OstrichSansHeavy] text-slate-100 text-center text-[3em] pt-[0.15em] uppercase leading-[0.84em] pb-1 select-none">{{_date_str(today)}} Forecast</div>
+	<div class="flex flex-col justify-center w-full h-full pb-5 pt-6">
+		<div class="font-[OstrichSansHeavy] text-slate-100 text-center text-[3em] uppercase leading-[0.84em] select-none">{{_date_str(today)}} Forecast</div>
 		<AgGridVue
 		  :style="{margin:'0 auto',width:'1000px',maxWidth:'calc(100vw - 2em)',height:'100%'}"
 		  ref="Grid"

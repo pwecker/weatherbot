@@ -15,6 +15,11 @@
   src: url('/chirp-bold-web.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'JunctionLight';
+  src: url('/junction-light.woff') format('woff');
+}
+
 @theme {
   --animate-fadein: fadeIn 1s ease;
   --animate-slideup: slideUp 0.25s ease;
@@ -43,7 +48,7 @@ a,
 
 @media (hover: hover) {
   a:hover {
-    text-decoration: underline;
+
   }
 }
 

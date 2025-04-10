@@ -53,7 +53,7 @@ interface Raindrop {
 }
 
 const image = '/bg.png'
-const totalDrops = 33;
+const totalDrops = 22;
 const raindrops = ref<Raindrop[]>([])
 
 for (let i = 0; i < totalDrops; i++) {

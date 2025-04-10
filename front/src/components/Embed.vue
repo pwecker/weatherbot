@@ -1,5 +1,5 @@
 <template>
-  <div v-if="post && ux.embed.font" class="w-full h-full flex bg-[#fff] pt-[12px] pb-[12px] pr-[12px] text-[rgb(15,20,25)] text-[14px] leading-[19px] select-none cursor-pointer hover:bg-stone-50">
+  <div v-if="post && ux.embed.font" class="no-underline! w-full h-full flex bg-[#fff] pt-[12px] pb-[12px] pr-[12px] text-[rgb(15,20,25)] text-[14px] leading-[19px] select-none cursor-pointer hover:bg-stone-50">
     <div class="w-[48px] ml-[6px] h-full flex justify-center">
       <div style="clip-path:circle(50%)" class="w-[34px] h-[34px] bg-cover bg-center bg-no-repeat" :style="{
         backgroundImage: profile_image_url !== null ?
