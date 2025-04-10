@@ -123,8 +123,6 @@
 					});
 				});
 
-				console.log((await Promise.all(images)).filter(Boolean))
-
 				this.ux.home.images = (await Promise.all(images)).filter(Boolean);
 			}
 		}
