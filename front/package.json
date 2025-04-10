@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p type-check \"build-only {@}\" -- && aws s3 --profile $AWS_PROFILE sync ./dist s3://$S3_BUCKET --delete && aws cloudfront --profile $AWS_PROFILE create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths \"/*\"",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.17",
     "@tsconfig/node22": "^22.0.0",
+    "@types/lodash": "^4.17.16",
     "@types/node": "^22.13.9",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/eslint-config-prettier": "^10.2.0",

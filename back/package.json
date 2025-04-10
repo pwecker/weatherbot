@@ -4,7 +4,8 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
-    "build": "strapi build",
+    "build": "npm run build:plugin && strapi build",
+    "build:plugin": "cd src/plugins/weatherbot && npm install && npm run build",
     "console": "strapi console",
     "deploy": "strapi deploy",
     "dev": "strapi develop --no-watch-admin",
