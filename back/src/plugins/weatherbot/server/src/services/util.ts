@@ -13,7 +13,7 @@ const service = ({ strapi }: { strapi: Core.Strapi }) => ({
 
 		try {
 			return await axios.get(
-				`${process.env.APP_URL}:${process.env.APP_PORT}/api/weatherbot/${cmd}`,
+				`${process.env.APP_URL}/api/weatherbot/${cmd}`,
 				{
 					headers: {
 						'Content-Type': 'application/json',
