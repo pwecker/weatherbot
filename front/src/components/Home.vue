@@ -3,7 +3,7 @@
 	<div class="w-full h-full flex flex-col items-center text-[10px] md:text-[2.5vh]">
 		<div class="flex items-center justify-between pl-3 pr-3 w-full h-[5.5em] md:h-[2.9em] fixed top-0 border-b-1 border-slate-100 min-h-[40px]">
 			<button @click="ux.home.table = !ux.home.table" class="bg-gray-50 text-slate-800 drop-shadow-xs rounded-[0.5em] h-[63%] flex items-center justify-around text-xs p-3 cursor-pointer hover:underline! hover:bg-[#fff]">
-				<span v-show="!ux.home.table">Scores ☁</span>
+				<span v-show="!ux.home.table">Forecasts ☁</span>
 				<span v-show="ux.home.table">☜ Back</span>
 			</button>
 			<a :href="github_url" target="_blank" class="bg-gray-50 text-slate-800 drop-shadow-xs rounded-[0.5em] h-[63%] flex items-center justify-arxound text-xs p-3 cursor-pointer hover:underline hover:bg-[#fff] hover:underline!">
