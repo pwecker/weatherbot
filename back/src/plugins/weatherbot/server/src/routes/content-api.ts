@@ -1,16 +1,5 @@
 export default [
   {
-    method: 'POST',
-    path: '/create',
-    handler: 'create.create',
-    config: {
-      auth: false,
-      policies: [
-        'plugin::weatherbot.token'
-      ]
-    },
-  },
-  {
     method: 'GET',
     path: '/refresh',
     handler: 'forecast.refresh',

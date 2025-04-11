@@ -1,5 +1,13 @@
 export default [
   {
+    method: 'POST',
+    path: '/create',
+    handler: 'create.create',
+    config: {
+      policies: []
+    },
+  },
+  {
     method: 'GET',
     path: '/status',
     handler: 'auth.status',
