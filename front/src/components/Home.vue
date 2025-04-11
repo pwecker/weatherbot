@@ -15,7 +15,7 @@
 				<Grid :today="today" :content="forecasts" />
 			</div>
 			<div v-show="!ux.home.table" class="flex flex-col justify-end pl-2 pb-2 md:pb-0 md:justify-center w-full grow-1">
-				<div v-if="ux.home.font" class="animate-slideup-fadein font-[OstrichSansHeavy] text-center text-[8em] uppercase leading-[0.84em] select-none">
+				<div v-if="ux.home.font && embed" class="animate-slideup-fadein font-[OstrichSansHeavy] text-center text-[8em] uppercase leading-[0.84em] select-none">
 				  <span class="text-slate-400">Where </span>
 				  <span class="text-slate-400">won't </span>
 				  <span class="text-slate-400">you </span>
@@ -24,7 +24,7 @@
 			</div>
 			<div v-show="!ux.home.table" class="flex flex-col justify-between items-center w-full grow-2 min-h-[80px]">
 				<div class="animate-fadein w-[480px] min-h-[80px] max-w-[90vw] drop-shadow-md">
-					<a :href="bot_url" target="_blank"><Embed v-if="embed" :post="embed" /></a>
+					<a :href="bot_url" target="_blank"><Embed v-show="embed" :post="embed" /></a>
 				</div>
 				<div class="w-full grow max-h-[90px]"></div>
 			</div>
@@ -58,10 +58,10 @@
 						font: false,
 						images: [] as any,
 						badges: [
-							'strapi5.png',
-							'postgis.png',
 							'vue3.png',
-							'tailwind4.png'
+							'tailwind4.png',
+							'strapi5.png',
+							'postgis.png'
 						],
 						preload: [
 							{ media: 'x.svg' },
