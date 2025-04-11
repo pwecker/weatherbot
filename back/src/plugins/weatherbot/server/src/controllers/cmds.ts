@@ -4,6 +4,7 @@ import axios from 'axios';
 const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
 
 	async run(ctx) {
+    strapi.log.info(`cmds...`)
     const pluginStore = strapi
       .store({
         type: 'plugin',
@@ -20,8 +21,13 @@ const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
     const [ cmdstr, flagstr ] = input;
     const cmds = cmdstr.split(';').filter(Boolean);
 
+    strapi.log.info(`cmds: ${cmds}`)
+
     for (const cmd of cmds) {
+
       const url = `${process.env.APP_URL}/api/weatherbot/${cmd}${flagstr ? `?${flagstr}` : ''}`;
+
+       strapi.log.info(`cmd: ${url}`)
 
       try {
         const response = await axios.get(url, {
@@ -32,6 +38,7 @@ const controller = ({ strapi }: { strapi: Core.Strapi }) => ({
         output.push({[cmd]: response.data});
         strapi.log.info(`${cmd}`);
       } catch(e) {
+        strapi.log.info(`err: ${e}`)
         output.push({[cmd]: e});
       }
     }

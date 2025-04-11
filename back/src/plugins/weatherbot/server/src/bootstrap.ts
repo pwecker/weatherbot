@@ -23,20 +23,29 @@ const bootstrap = async ({ strapi }: { strapi: Core.Strapi }) => {
     strapi.log.info(`generated token: ${token}`);
   }
 
+  strapi.log.info('bootstraping...')
+
   strapi.cron.add({
     post: {
       task: async({ strapi }) => {
-        const url = `${process.env.APP_URL}/api/weatherbot/refresh;message;upload;track`;
-        try {
-          await axios.get(url, {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          });
-          
-        } catch(e) {
-          strapi.log.error(e);
-        }
+
+        await axios.get(`${process.env.APP_URL}/api/weatherbot/refresh`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        await axios.get(`${process.env.APP_URL}/api/weatherbot/message`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        await axios.get(`${process.env.APP_URL}/api/weatherbot/upload`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
       },
       bypassRedlock: false,
       options: {
@@ -45,17 +54,13 @@ const bootstrap = async ({ strapi }: { strapi: Core.Strapi }) => {
     },
     track: {
       task: async({ strapi }) => {
-        const url = `${process.env.APP_URL}/api/weatherbot/track`;
-        try {
-          await axios.get(url, {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          });
-          
-        } catch(e) {
-          strapi.log.error(e);
-        }
+
+        await axios.get(`${process.env.APP_URL}/api/weatherbot/track`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
       },
       bypassRedlock: false,
       options: {
