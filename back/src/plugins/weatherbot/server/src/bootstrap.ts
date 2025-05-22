@@ -23,51 +23,51 @@ const bootstrap = async ({ strapi }: { strapi: Core.Strapi }) => {
     strapi.log.info(`generated token: ${token}`);
   }
 
-  if (process.env.NODE_ENV === 'production') {
-    strapi.cron.add({
-      post: {
-        task: async({ strapi }) => {
+  // if (process.env.NODE_ENV === 'production') {
+  //   strapi.cron.add({
+  //     post: {
+  //       task: async({ strapi }) => {
 
-          await axios.get(`${process.env.APP_URL}/api/weatherbot/refresh`, {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          });
+  //         await axios.get(`${process.env.APP_URL}/api/weatherbot/refresh`, {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`
+  //           }
+  //         });
 
-          await axios.get(`${process.env.APP_URL}/api/weatherbot/message`, {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          });
+  //         await axios.get(`${process.env.APP_URL}/api/weatherbot/message`, {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`
+  //           }
+  //         });
 
-          await axios.get(`${process.env.APP_URL}/api/weatherbot/upload`, {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          })
-        },
-        bypassRedlock: false,
-        options: {
-          rule: '0 0 6 * * *'
-        }
-      },
-      track: {
-        task: async({ strapi }) => {
+  //         await axios.get(`${process.env.APP_URL}/api/weatherbot/upload`, {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`
+  //           }
+  //         })
+  //       },
+  //       bypassRedlock: false,
+  //       options: {
+  //         rule: '0 0 6 * * *'
+  //       }
+  //     },
+  //     track: {
+  //       task: async({ strapi }) => {
 
-          await axios.get(`${process.env.APP_URL}/api/weatherbot/track`, {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          });
+  //         await axios.get(`${process.env.APP_URL}/api/weatherbot/track`, {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`
+  //           }
+  //         });
 
-        },
-        bypassRedlock: false,
-        options: {
-          rule: '0 0 0,12 * * *'
-        }
-      }
-    } as any);
-  }
+  //       },
+  //       bypassRedlock: false,
+  //       options: {
+  //         rule: '0 0 0,12 * * *'
+  //       }
+  //     }
+  //   } as any);
+  // }
 
 };
 
